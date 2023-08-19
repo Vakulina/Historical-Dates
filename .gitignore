@@ -1,0 +1,16 @@
+# Зависимости и папки с зависимостями
+/node_modules
+
+# Сгенерированные файлы сборки
+/dist
+
+# Локальные настройки IDE (пример для VS Code)
+.vscode
+.idea
+
+# файлы с переменными окружения
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
