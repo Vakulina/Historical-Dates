@@ -1,4 +1,5 @@
 import React from 'react';
+import './assets/styles/index.css'
 import style from './App.module.scss';
 import gsap from 'gsap';
 import Swiper from 'swiper';
