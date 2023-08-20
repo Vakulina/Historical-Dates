@@ -1,0 +1,15 @@
+.title {
+    display: block;
+    position: relative;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 436px;
+    height: 134px;
+    margin-top: 0;
+    padding-left: 80px;
+    margin-left: -2px;
+    border-left: 5px solid transparent;
+    border-image: linear-gradient(to bottom, var(--iris-80), var(--fuschia-100)) 1 100%;
+}

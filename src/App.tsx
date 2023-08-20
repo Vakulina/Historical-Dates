@@ -4,12 +4,13 @@ import style from './App.module.scss';
 import gsap from 'gsap';
 import Swiper from 'swiper';
 import 'swiper/css';
+import { HistoryDates } from './components/HistoryDates/HistoryDates';
 
 const App: React.FC = () => {
   return (
-    <div className="app">
-      hello
-    </div>
+    <div className={style.app}>
+      <HistoryDates/>
+</div>
   );
 };
 

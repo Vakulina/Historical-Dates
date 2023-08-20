@@ -20,21 +20,33 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 
-          {
+        use: [MiniCssExtractPlugin.loader,
+        {
           loader: 'css-loader',
           options: {
-              modules: {
-                  localIdentName: '[local]--[hash:base64:5]',
-              },
+            modules: {
+              localIdentName: '[local]--[hash:base64:5]',
+            },
           },
-      },, 'sass-loader'],
+        }, , 'sass-loader'],
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-     }
-    
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash:8].[ext]',
+              outputPath: 'images/', 
+            },
+          },
+        ],
+      },
+
     ],
   },
   plugins: [

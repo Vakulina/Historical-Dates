@@ -1,0 +1,63 @@
+@import '../../assets/styles/mixins';
+
+.swiper-button-prev,
+.swiper-button-next {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgba(66, 86, 122, 0.5);
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include shadow;
+    background-color: var(--white);
+    border: none;
+    img{
+        user-select: none;
+        pointer-events: none;
+    }
+}
+
+.swiper-button-prev[aria-disabled="true"] {
+    opacity: 0;
+}
+
+.swiper-button-next[aria-disabled="true"] {
+    opacity: 0;
+}
+
+.swiper-button-next {
+    right: 70px;
+    top: calc(50% - 10px);
+    z-index: 10;
+}
+.swiper-button-prev {
+    left: 15px;
+    top: calc(50% - 10px);
+    z-index: 10;
+}
+
+.lineSlider {
+    position: relative;
+
+    &__title {
+        color: var(--iris-80);
+        font-family: 'Bebas Neue';
+        font-size: 25px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+    }
+
+    &__description {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    &__btn_toLeft {
+        transform: rotate(180deg);
+    }
+}

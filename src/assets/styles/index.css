@@ -3,6 +3,7 @@
 :root {
     --black-blue: #42567A;
     --white: #FFF;
+    --border-color: rgba(66, 86, 122, 0.1);
 
     --fuschia-80: #F178B6;
     --fuschia-100: #EF5DA8;
@@ -17,4 +18,13 @@
     font-weight: 400;
     font-style: normal;
     color: var(--black-blue, #42567A);
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    margin: 0;
+    background-color: #F4F5F9;
 }
