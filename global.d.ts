@@ -7,7 +7,8 @@ declare namespace JSX {
     'swiper-container': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
       navigation?: string;
       pagination?: string;
-      init?:'false'
+      init?:'false';
+      onSlideChange?:Function;
     };
     'swiper-slide': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
       lazy?: string;

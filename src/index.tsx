@@ -1,8 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
 import App from './App';
 import { register } from 'swiper/element/bundle';
 
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+root.render(
+    <App />
+);
 register();
-
-ReactDOM.render(<App />, document.getElementById('root'));

@@ -18,6 +18,7 @@
     img{
         user-select: none;
         pointer-events: none;
+
     }
 }
 
@@ -42,6 +43,7 @@
 
 .lineSlider {
     position: relative;
+    height: 245px;
 
     &__title {
         color: var(--iris-80);
