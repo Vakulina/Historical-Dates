@@ -3,11 +3,33 @@
     padding: 0 calc((100vw - 1440px) * 1/3) 0 calc((100vw - 1440px) * 2/3);
     margin:  auto;
 
+
     &__content{
         border-left:  1px var(--border-color, rgba(66, 86, 122, 0.1)) solid;
         border-right:  1px var(--border-color, rgba(66, 86, 122, 0.1)) solid;
         min-height: 100vh;
         height: 100%;
         padding-top: calc(min(170px, 15.5vh));
+        position: relative;
+    }
+    &__content:before {
+        background-color: rgba(66,86,122,.102);
+        content: "";
+        height: 100%;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        width: 1px;
+    }
+    &__content:after{
+        background-color: rgba(66,86,122,.102);
+        content: "";
+        height: 1px;
+        position: absolute;
+        top: calc(50% - 70px);
+        transform: translateY(-50%);
+        width: 100%;
+        z-index: 1;
     }
 }
