@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from "react"
 import { CategoryContext } from "../../context/categoryContext";
 import style from './AnimatedDots.module.scss'
+import { useDimensions } from "../../utiles/useDimensions";
 
 export const AnimatedDots = () => {
     const { data, category, changeCategory } = useContext(CategoryContext);
@@ -13,16 +14,18 @@ export const AnimatedDots = () => {
     const dotsCount = data?.length;
     const delta = dotsCount ? Math.PI * 2 / dotsCount : 0;
     let angle = 0;
+    const circleWidth = useDimensions(circleRef).width
+    console.log(circleWidth)
 
     return (
         <div className={style.animatedDots}>
             <div className={style.animatedDots__circle} ref={circleRef}>
                 {data && data.map(category => {
+                    const top = (circleWidth / 2) * Math.cos(angle);
+                    const left = (circleWidth / 2) * Math.sin(angle);
 
-                    const left = 100 * Math.cos(angle) + 'px';
-                    const top = 100 * Math.sin(angle) + 'px';
                     angle += delta;
-                    return <div className={style.animatedDots__dot} />
+                    return <div className={style.animatedDots__dot} style={{ top:`${top}px`, left:`${left}px` }} />
                 })}
             </div>
 
