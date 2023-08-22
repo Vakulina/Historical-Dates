@@ -16,12 +16,9 @@ export const HistoryDates = () => {
         return { data, category: activeCategory, changeCategory: setActiveCategory }
     }, [activeCategory, data])
 
-    // useEffect(()=>console.log("DATAT",value),[activeCategory])
-
     useEffect(() => {
         const data = getData().data
         setData(data)
-        // console.log(data)
         setActiveCategory(data[0])
     }, [])
 

@@ -17,7 +17,10 @@
         border-radius: 50%;
         border: 1px solid var(--stroke);
         top: 190px;
-        position: absolute;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         @media (max-width: 1024px) {
             top: 110px;
@@ -75,6 +78,9 @@
         height: 6px;
         border-radius: 50%;
         background-color: var(--black-blue, #42567A);
+
+        position: relative;
+
     }
 
 }

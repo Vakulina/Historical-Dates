@@ -1,5 +1,3 @@
-import style from './LineSlider.module.scss'
-
 export const swiperParams = {
     slidesPerView: 1,
 

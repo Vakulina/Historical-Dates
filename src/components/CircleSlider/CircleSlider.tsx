@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { useRef, useEffect, FC } from 'react';
-import { ICategory, IEvent } from '../../modeles/dataTDO';
 import style from './CircleSlider.module.scss'
 import { swiperParams } from './constants';
 import DarkArrow from '../../assets/images/dark-arrow.svg'
@@ -21,17 +20,11 @@ export const CircleSlider: FC = () => {
     if (swiperRef.current?.initialize) swiperRef?.current?.initialize();
     swiperRef.current?.addEventListener('slidechange', (e: any) => {
       const [swiper] = e.detail;
-      console.log(data ? data[swiper.activeIndex] : null)
       setActiveSlide(swiper.activeIndex + 1)
-      //if(data&&changeCategory) console.log('category CURRENT', data[swiper.activeIndex-1], data)
-      //if(category)console.log('category', category)
       if (data && changeCategory) changeCategory(data[swiper.activeIndex]);
     });
   }, []);
 
-
-  useEffect(() => console.log(data), [data])
-  useEffect(() => console.log(slides), [slides])
   return (
     <div className={style.circleSlider}>
       <swiper-container
