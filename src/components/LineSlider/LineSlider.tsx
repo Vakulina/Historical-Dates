@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { useRef, useEffect, FC } from 'react';
-import { IEvent } from '../../modeles/dataTDO';
 import style from './LineSlider.module.scss'
 import { swiperParams } from './constants';
 import Arrow from '../../assets/images/arrow.svg'
 import classNames from 'classnames';
 import { CategoryContext } from '../../context/categoryContext';
+import './index.css'
 
 //использован Swiper Element(WebComponent) https://swiperjs.com/react
 export const LineSlider: FC = () => {

@@ -11,25 +11,11 @@
         height: 100%;
         padding-top: calc(min(170px, 15.5vh));
         position: relative;
-    }
-    &__content:before {
-        background-color: rgba(66,86,122,.102);
-        content: "";
-        height: 100%;
-        left: 50%;
-        position: absolute;
-        top: 0;
-        transform: translateX(-50%);
-        width: 1px;
-    }
-    &__content:after{
-        background-color: rgba(66,86,122,.102);
-        content: "";
-        height: 1px;
-        position: absolute;
-        top: calc(50% - 70px);
-        transform: translateY(-50%);
-        width: 100%;
-        z-index: 1;
-    }
+        
+        @media (max-width: 1024px) {
+            padding-top: 50px;        
+        }
+        }
+
+
 }

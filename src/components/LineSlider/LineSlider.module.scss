@@ -15,7 +15,8 @@
     @include shadow;
     background-color: var(--white);
     border: none;
-    img{
+
+    img {
         user-select: none;
         pointer-events: none;
 
@@ -34,16 +35,49 @@
     right: 70px;
     top: calc(50% - 10px);
     z-index: 10;
+
+    @media (max-width: 1200px) {
+        right: 15px;
+    }
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
+
 .swiper-button-prev {
     left: 15px;
     top: calc(50% - 10px);
     z-index: 10;
+
+    @media (max-width: 600px) {
+        display: none;
+    }
 }
 
 .lineSlider {
     position: relative;
-    height: 245px;
+    min-height: 245px;
+
+    @media (max-width: 600px) {
+        min-height: 150px;
+        margin-top: 30px;
+    }
+
+    swiper-container {
+        padding: 0 80px;
+
+
+
+        @media (max-width: 600px) {
+            padding: 0 20px 20px 20px;
+        }
+
+        @media (max-width: 450px) {
+            padding: 0;
+            padding-bottom: 20px;
+        }
+    }
 
     &__title {
         color: var(--iris-80);
@@ -52,11 +86,22 @@
         line-height: 1.2;
         text-transform: uppercase;
         margin-bottom: 18px;
+
+        @media (max-width: 600px) {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
     }
 
     &__description {
         font-size: 20px;
         line-height: 1.5;
+
+        @media (max-width: 600px) {
+            font-size: 14px;
+            line-height: 1.45;
+        }
     }
 
     &__btn_toLeft {

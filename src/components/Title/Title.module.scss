@@ -13,4 +13,21 @@
     margin-left: -2px;
     border-left: 5px solid transparent;
     border-image: linear-gradient(to bottom, var(--iris-80), var(--fuschia-100)) 1 100%;
+
+    @media (max-width: 768px) {
+       font-size: 56px;       
+       border: none;
+       max-width: 90%;
+       z-index: 10;
+       padding-left: 20px;
+    }
+    @media (max-width: 450px) {
+        position: static;
+        margin-top: 9px;
+        margin-bottom: 56px;
+        font-size: 20px; 
+        max-width: 50%;
+        height: auto;
+
+    }
 }

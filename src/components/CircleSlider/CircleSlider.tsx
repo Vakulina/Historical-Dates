@@ -40,7 +40,7 @@ export const CircleSlider: FC = () => {
       >
         {slides?.map(slide => {
           return <swiper-slide key={slide.id}>
-            <div className={style.circleSlider__circle}></div>
+            <div className={style.circleSlider__circle}/>
           </swiper-slide>
         })}
       </swiper-container>

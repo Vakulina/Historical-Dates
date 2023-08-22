@@ -1,0 +1,80 @@
+.animatedDots {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+
+    @media (max-width: 450px) {
+        display: none;
+    }
+
+    &__circle {
+        width: 530px;
+        height: 530px;
+        border-radius: 50%;
+        border: 1px solid var(--stroke);
+        top: 190px;
+        position: absolute;
+
+        @media (max-width: 1024px) {
+            top: 110px;
+        }
+
+        @media (max-width: 768px) {
+            height: 400px;
+            width: 400px;
+        }
+
+        @media (max-width: 450px) {
+            display: none;
+        }
+    }
+
+
+    &:after {
+        background-color: rgba(66, 86, 122, .102);
+        content: "";
+        height: 1px;
+        position: absolute;
+        top: calc(265px + 190px);
+        transform: translateY(-50%);
+        width: 100%;
+        z-index: 1;
+
+        @media (max-width: 1024px) {
+            top: calc(265px + 110px);
+        }
+
+        @media (max-width: 768px) {
+            top: calc(200px + 110px);
+        }
+
+    }
+
+    &:before {
+        background-color: rgba(66, 86, 122, .102);
+        content: "";
+        height: 100%;
+        left: 50%;
+        position: absolute;
+        top: 0;
+        transform: translateX(-50%);
+        width: 1px;
+
+        @media (max-width: 450px) {
+            display: none;
+        }
+    }
+
+
+    &__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--black-blue, #42567A);
+    }
+
+}

@@ -17,8 +17,8 @@ export const swiperParams = {
           display:flex;
           justify-content: center;
           align-items: center;
-      
         }
+
         `,
     ],
 };

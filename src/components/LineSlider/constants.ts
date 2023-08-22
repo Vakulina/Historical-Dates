@@ -1,14 +1,13 @@
-import style from './LineSlider.module.scss'
-
 export const swiperParams = {
-    slidesPerView: 3,
+    slidesPerView: 1.4,
+    spaceBetween: 20,
     breakpoints: {
         320: {
-            slidesPerView: 1.5,
+            slidesPerView: 1.4,
             spaceBetween: 25,
         },
         768: {
-            slidesPerView: 2,
+            slidesPerView: 1.5,
             spaceBetween: 30,
         },
         992: {
@@ -28,9 +27,13 @@ export const swiperParams = {
         `
         .swiper {
           max-width: 1400px;
-          padding: 0 80px 0 80px;
           margin: 0 auto 0 0;
           box-sizing:border-box;
+        }
+        @media (max-width: 450px) {
+            .swiper {
+                padding: 0 20px;
+            }    
         }
         `,
     ],
