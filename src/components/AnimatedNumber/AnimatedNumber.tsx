@@ -10,16 +10,21 @@ type AnimateNumberProps = {
 export const AnimatedNumber=({ number, className }: AnimateNumberProps)=> {
   const [initValue] = useState(number);
   const numberRef = useRef<HTMLDivElement | null>(null);
+  const animateRef = useRef<gsap.Context | null>(null);
 
   useLayoutEffect(() => {
-    const  ctx = gsap.context(() => {
+    animateRef.current = gsap.context(() => {});
+    return () => animateRef.current?.revert();
+  }, []);
+
+  useLayoutEffect(() => {
+    if (animateRef.current) animateRef.current.add(()=>{
         gsap.to(numberRef.current, {
             duration: 1,
             textContent: number,
             roundProps: 'textContent',
           })
     });
-    return () => ctx.current?.revert();
   }, [number]);
 
  

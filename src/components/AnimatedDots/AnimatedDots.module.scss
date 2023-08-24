@@ -18,6 +18,7 @@
         border: 1px solid var(--stroke);
         top: 190px;
         position: relative;
+        z-index: 20;
 
         @media (max-width: 1024px) {
             top: 110px;
@@ -76,10 +77,8 @@
         border-radius: 50%;
         background-color: var(--black-blue, #42567A);
         position: absolute;
-        top: 0; /* Перемещаем .element в вертикальном направлении на 50% высоты .block */
-        left: 0; /* Перемещаем .element в горизонтальном направлении на 50% ширины .block */
-
-
+        top: 0; 
+        left: 0; 
     }
 
 }

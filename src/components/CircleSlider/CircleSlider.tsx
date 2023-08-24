@@ -12,7 +12,8 @@ import { AnimatedNumber } from '../AnimatedNumber/AnimatedNumber';
 export const CircleSlider: FC = () => {
   const { data, category, changeCategory } = useContext(CategoryContext);
   const swiperRef = useRef<HTMLElement & { initialize: () => void } | null>(null);
-  const [activeSlide, setActiveSlide] = useState(1)
+  const activeSlide = category?.id ||0
+  const paginationString=`${addZero(activeSlide)}/${addZero(data!.length)}`
   const slides = data
 
   useEffect(() => {
@@ -20,7 +21,6 @@ export const CircleSlider: FC = () => {
     if (swiperRef.current?.initialize) swiperRef?.current?.initialize();
     swiperRef.current?.addEventListener('slidechange', (e: any) => {
       const [swiper] = e.detail;
-      setActiveSlide(swiper.activeIndex + 1)
       if (data && changeCategory) changeCategory(data[swiper.activeIndex]);
     });
   }, []);
@@ -38,7 +38,7 @@ export const CircleSlider: FC = () => {
         })}
       </swiper-container>
       <div className={style.circleSlider__pagination}>
-        {`${addZero(activeSlide)}/${addZero(data!.length)}`}
+        {paginationString}
         <div className={style.circleSlider__btns}>
           <div className={classNames('circle-swiper-button-prev', style.circleSlider__prev)}>
             <img src={DarkArrow} className={style.circleSlider__btn_toLeft} />

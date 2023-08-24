@@ -8,7 +8,7 @@ export interface ICategory {
     id: number;
     from: number;
     to: number;
-    category?: string;
+    name?: string;
     events: IEvent[];
 }
 

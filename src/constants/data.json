@@ -4,7 +4,7 @@
             "id": 1,
             "from": 2015,
             "to": 2023,
-            "category": "Наука",
+            "name": "Наука",
             "events": [
                 {
                     "eventId": 11,
@@ -57,7 +57,7 @@
             "id": 2,
             "from": 1990,
             "to": 2018,
-            "category": "Литература",
+            "name": "Литература",
             "events": [
                 {
                     "eventId": 21,
@@ -132,7 +132,7 @@
             "id": 4,
             "from": 1930,
             "to": 1970,
-            "category": "Театр",
+            "name": "Театр",
             "events": [
                 {
                     "eventId": 41,
@@ -165,7 +165,7 @@
             "id": 5,
             "from": 1980,
             "to": 2000,
-            "category": "Музыка",
+            "name": "Музыка",
             "events": [
                 {
                     "eventId": 51,
@@ -203,7 +203,7 @@
             "id": 6,
             "from": 1950,
             "to": 1999,
-            "category": "Техника",
+            "name": "Техника",
             "events": [
                 {
                     "eventId": 61,
