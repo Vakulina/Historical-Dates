@@ -26,7 +26,6 @@ export const AnimatedNumber=({ number, className }: AnimateNumberProps)=> {
           })
     });
   }, [number]);
-
  
   return (
     <div className={className} ref={numberRef}>

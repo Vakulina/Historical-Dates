@@ -22,3 +22,8 @@ export const getDot = ({ item, index, circleWidth, angleStep }: Props): ReactEle
         style={{ top: `${top}px`, left: `${left}px` }
         } />
 }
+
+export  const startAnimation = (animation: () => void, context:gsap.Context) => {
+    context.kill();
+    context.add(animation);
+};

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext} from 'react';
 import { useRef, useEffect, FC } from 'react';
 import style from './CircleSlider.module.scss'
 import { swiperParams } from './constants';

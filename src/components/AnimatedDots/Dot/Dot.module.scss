@@ -29,8 +29,8 @@
 
     &__index {
         position: absolute;
-        width: 56px;
-        height: 56px;
+        width: 0;
+        height: 0;
         background-color: #F4F5F9;
         border: 1px rgba(48, 62, 88, .5) solid;
         border-radius: 50%;
@@ -41,9 +41,7 @@
         display: none;
 
     }
-    &:hover &__index {
-        display: flex;
-    }
+
 
 
 }
