@@ -10,9 +10,12 @@ export const AnimatedDots = () => {
     const circleRef = useRef<HTMLDivElement | null>(null);
     const circleWidth = useDimensions(circleRef).width;
     const numItems = data!.length;
-    const angleStep = (360 / numItems) * (Math.PI / 180);
     const animateRef = useRef<gsap.Context | null>(null);
     const ctx = useRef<gsap.Context | null>(null);
+    const [isInitial, setInitial] = useState(false)
+    const angleStep = (360 / numItems) * (Math.PI / 180);
+    const angleStepGradus = (360 / numItems)
+    const angleDifference = category?.id ?    (angleStepGradus * category?.id) : angleStepGradus 
 
     useLayoutEffect(() => {
         ctx.current = gsap.context(() => {
@@ -27,13 +30,25 @@ export const AnimatedDots = () => {
                 height: '56px',
             })
         }, circleRef);
+        setInitial(true)
 
         return () => ctx.current?.revert();
     }, []);
 
+       useLayoutEffect(() => {
+        animateRef.current = gsap.context(() => {
+            gsap.to(circleRef.current, {
+                rotation: 360 - angleDifference,
+                duration: 1, 
+            });
+        });
+    }, [category, angleStep]);
+
 
     useLayoutEffect(() => {
-      if(category!.id !== 1)  ctx.current?.revert();
+      if( (category!.id !== 1) || isInitial)  {
+        ctx.current?.revert();
+      }
     }, [category]);
 
     useLayoutEffect(() => {
@@ -46,7 +61,6 @@ export const AnimatedDots = () => {
             <div className={style.animatedDots__circle} ref={circleRef}>
                 {data && data.map((item, index) => getDot({ item, index, circleWidth, angleStep }))}
             </div>
-
         </div>
     )
 }

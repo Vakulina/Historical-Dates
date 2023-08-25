@@ -18,6 +18,8 @@ export default function Dot({ category, index, style }: DotProps) {
     const isActive = currentCategory!.id === index + 1
     const hoverCtx = useRef<gsap.Context | null>(null);
     const activeCtx = useRef<gsap.Context | null>(null);
+    const rotationCtx = useRef<gsap.Context | null>(null);
+    const angleStepGradus = -360 + 60 * (currentCategory!.id || 1)
 
     const onClick = () => {
         if (!isActive && changeCategory && data) {
@@ -28,12 +30,28 @@ export default function Dot({ category, index, style }: DotProps) {
     useLayoutEffect(() => {
         activeCtx.current = gsap.context(() => {
         }, dotRef);
-        return () => activeCtx.current?.revert();
+        rotationCtx.current = gsap.context(() => {
+        }, dotRef);
+        return () => {
+            activeCtx.current?.revert();
+            rotationCtx.current?.revert()
+        }
     }, []);
 
+    useLayoutEffect(() => {
+        if (rotationCtx.current) {
+            rotationCtx.current.revert()
+            rotationCtx.current.add(() => {
+                gsap.to(dotRef.current, {
+                    rotation: angleStepGradus,
+                    duration: 0,
+                });
+            })
+        }
+    }, [currentCategory])
 
     useLayoutEffect(() => {
-        if (!isActive&& activeCtx.current) {
+        if (!isActive && activeCtx.current) {
             startAnimation(() => {
                 gsap.to(`.${styles.dot__category}`, {
                     opacity: 0,
@@ -49,26 +67,24 @@ export default function Dot({ category, index, style }: DotProps) {
                 });
             }, activeCtx.current);
         }
-    }, [isActive]);
-    
-    useLayoutEffect(() => {
-        if (isActive&&activeCtx.current) {
+
+        if (isActive && activeCtx.current)
             startAnimation(() => {
                 gsap.to(`.${styles.dot__category}`, {
-                    opacity: isActive ? 1 : 0,
-                    display: isActive ? 'flex' : 'none',
-                    duration: isActive ? 0.4 : 0,
-                    delay: isActive ? 0.6 : 0,
+                    opacity: 1,
+                    display: 'flex',
+                    duration: 0.4,
+                    delay: 0.6,
                 });
                 gsap.to(`.${styles.dot__index}`, {
-                    opacity: isActive ? 1 : 0,
-                    display: isActive ? 'flex' : 'none',
+                    opacity: 1,
+                    display: 'flex',
                     duration: 0.4,
-                    width: isActive ? '56px' : 0,
-                    height: isActive ? '56px' : 0,
+                    width: '56px',
+                    height: '56px',
                 });
+
             }, activeCtx.current);
-        }
     }, [isActive]);
 
 
