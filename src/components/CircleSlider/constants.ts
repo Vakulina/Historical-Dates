@@ -7,7 +7,7 @@ export const swiperParams = {
     },
     speed: 0,
     injectStyles: [
-    `
+        `
         .swiper-slide {
           box-sizing: border-box;
           overflow:hidden;
@@ -15,6 +15,17 @@ export const swiperParams = {
           display:flex;
           justify-content: center;
           align-items: center;
+        }
+        .swiper-pagination{
+            position: fixed;
+            bottom: 30px !important;
+            display:none;
+            left:10px;
+        }
+        @media (max-width: 450px) {
+            .swiper-pagination{
+                display:block;
+            }
         }
 
         `,

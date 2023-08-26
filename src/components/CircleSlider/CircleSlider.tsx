@@ -37,6 +37,7 @@ export const CircleSlider: FC = () => {
       <swiper-container
         ref={swiperRef}
         init="false"
+        pagination="true"
       >
         {slides?.map(slide => {
           return <swiper-slide key={slide.id}>

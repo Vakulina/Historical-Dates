@@ -37,10 +37,17 @@
     &__circle {
         height: 530px;
         width: 530px;
+        overflow: visible;
+        will-change: transform, opacity;
 
         @media (max-width: 768px) {
-            height: 400px;
-            width: 400px;
+            height: 350px;
+            width: 350px;
+        }
+
+        @media (max-width: 600px) {
+            height: 300px;
+            width: 300px;
         }
 
         @media (max-width: 450px) {
@@ -97,6 +104,10 @@
         margin-top: -60px;
         position: absolute;
         z-index: 10;
+
+        @media (max-width: 768px) {
+            margin-top: 0;
+        }
 
         @media (max-width: 450px) {
             bottom: 30px;

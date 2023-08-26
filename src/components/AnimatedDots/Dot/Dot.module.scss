@@ -2,7 +2,7 @@
     position: absolute;
     width: 6px;
     height: 6px;
-    margin: calc((-5px));
+    margin: calc(-5px);
     background-color: var(--black-blue);
     border: none;
     border-radius: 50%;
@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    overflow: visible;
 
 
     &__category {
@@ -24,7 +25,11 @@
         line-height: 30px;
         opacity: 0;
         display: none;
-       
+
+        @media (max-width: 970px) {
+            font-size: 16px;
+            left: 37px;
+        }
     }
 
     &__index {
@@ -41,7 +46,4 @@
         display: none;
 
     }
-
-
-
 }

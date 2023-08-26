@@ -19,16 +19,20 @@
         top: 190px;
         position: relative;
         z-index: 20;
+        overflow: visible;
 
         @media (max-width: 1024px) {
             top: 110px;
         }
 
         @media (max-width: 768px) {
-            height: 400px;
-            width: 400px;
+            height: 350px;
+            width: 350px;
         }
-
+        @media (max-width: 600px) {
+            height: 300px;
+            width: 300px;
+        }
         @media (max-width: 450px) {
             display: none;
         }
@@ -52,7 +56,9 @@
         @media (max-width: 768px) {
             top: calc(200px + 110px);
         }
-
+        @media (max-width: 600px) {
+            top: calc(150px + 110px);
+        }
     }
 
     &:before {
