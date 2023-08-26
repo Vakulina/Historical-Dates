@@ -99,7 +99,6 @@ export default function Dot({ category, index, style }: DotProps) {
                 height: '56px',
             });
         }, dotRef)
-
     };
 
     const handleMouseLeave = () => {

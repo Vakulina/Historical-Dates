@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState } from 'react';
 import { useRef, useEffect, FC } from 'react';
 import style from './CircleSlider.module.scss'
 import { swiperParams } from './constants';
@@ -7,13 +7,13 @@ import classNames from 'classnames';
 import { CategoryContext } from '../../context/categoryContext';
 import { addZero } from './utils';
 import { AnimatedNumber } from '../AnimatedNumber/AnimatedNumber';
+import Swiper from 'swiper';
 
 //использован Swiper Element(WebComponent) https://swiperjs.com/react
 export const CircleSlider: FC = () => {
   const { data, category, changeCategory } = useContext(CategoryContext);
-  const swiperRef = useRef<HTMLElement & { initialize: () => void } | null>(null);
-  const activeSlide = category?.id ||0
-  const paginationString=`${addZero(activeSlide)}/${addZero(data!.length)}`
+  const swiperRef = useRef<HTMLElement & { initialize: () => void, swiper: Swiper } | null>(null);
+  const [paginationString, setPaginationString] = useState<string>('')
   const slides = data
 
   useEffect(() => {
@@ -22,8 +22,15 @@ export const CircleSlider: FC = () => {
     swiperRef.current?.addEventListener('slidechange', (e: any) => {
       const [swiper] = e.detail;
       if (data && changeCategory) changeCategory(data[swiper.activeIndex]);
+      if (swiperRef.current)  setPaginationString(`${addZero(swiperRef.current.swiper.activeIndex + 1)}/${addZero(data!.length)}`)
     });
+    if (swiperRef.current) setPaginationString(`${addZero(swiperRef.current.swiper.activeIndex + 1)}/${addZero(data!.length)}`)
   }, []);
+
+
+  useEffect(() => {
+    if (swiperRef.current && category?.id) swiperRef.current?.swiper.slideTo(category?.id - 1)
+  }, [category]);
 
   return (
     <div className={style.circleSlider}>
@@ -33,7 +40,7 @@ export const CircleSlider: FC = () => {
       >
         {slides?.map(slide => {
           return <swiper-slide key={slide.id}>
-            <div className={style.circleSlider__circle}/>
+            <div className={style.circleSlider__circle} />
           </swiper-slide>
         })}
       </swiper-container>
